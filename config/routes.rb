@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'tweets#index'
   # get 'tweets', to: 'tweets#index'
   # resources :tweets, only: [:index, :new, :create, :destroy, :edit, :update, :show]
-  resources :tweets
+  resources :tweets do
+    resources :comments, only: :create
+  end
   resources :users, only: :show
 end
